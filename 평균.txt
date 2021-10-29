@@ -1,0 +1,27 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+	int input;
+	cin >> input;
+	vector<double> temp(input);
+	for (int i = 0; i < input; i++) {
+		cin >> temp[i];
+	}
+	int max = 0;
+	for (int i = 0; i < input; i++) {
+		if (max < temp[i]) {
+			max = temp[i];
+		}
+	}
+	vector<double> new_avg;
+	double sum = 0;
+	for (int i = 0; i < input; i++) {
+		new_avg.push_back(temp[i] / max * 100);
+		sum += new_avg[i];
+	}
+	double avg = sum / (double)input;
+	cout << avg;
+}
