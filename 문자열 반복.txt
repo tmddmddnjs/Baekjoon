@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+#include <cstring>
+using namespace std;
+
+int main() {
+	int n = 0;
+	//
+	cout << "반복 횟수 : ";
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		int count = 0;
+		string s;
+		//
+		cout << "\n" << "문자 갯수 : ";
+		cin >> count;
+		cin >> s;
+		for (int j = 0; j < s.length(); j++) {
+			for (int k = 0; k < count; k++)
+				cout << s[j];
+		}
+		cout << "\n";
+	}
+}
