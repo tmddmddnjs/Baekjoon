@@ -1,0 +1,13 @@
+#include <iostream>
+#include <algorithm>
+#include <string>
+using namespace std;
+
+int main() {
+	string first_num;
+	string second_num;
+	cin >> first_num >> second_num;
+	reverse(first_num.begin(), first_num.end());
+	reverse(second_num.begin(), second_num.end());
+	cout << max(stoi(first_num), stoi(second_num));
+}
