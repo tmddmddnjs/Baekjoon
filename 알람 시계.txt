@@ -1,0 +1,20 @@
+#include <iostream>
+
+using namespace std;
+
+void solution(int hour, int second) {
+	if (second < 45 && hour > 0)
+		cout << (hour - 1) << ' ' << (60 + (second - 45));
+	else if (second < 45 && hour == 0)
+		cout << "23" << ' ' << (60 + (second - 45));
+	else if (second >= 45 && hour > 0)
+		cout << hour << ' ' << second - 45;
+	else if (second >= 45 && hour == 0)
+		cout << hour << ' ' << second - 45;
+}
+
+int main() {
+	int hour, second;
+	cin >> hour >> second;
+	solution(hour, second);
+}
