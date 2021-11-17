@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+int main() {
+	string s;
+	cin >> s;
+	for (int i = 0; i < s.length(); i++)
+		s[i] = toupper(s[i]);
+
+	int count[26] = { 0, };
+	for (int i = 0; i < s.length(); i++)
+		count[s[i] - 'A']++;
+
+	int max = 0, c = 0, label = 0;
+	for (int i = 0; i < 26; i++) {
+		if (max < count[i]) {
+			max = count[i];
+			c = 0;
+			label = i;
+		}
+		if (max == count[i]) {
+			c++;
+		}
+	}
+	if (c > 1) {
+		cout << '?';
+	}
+	else {
+		cout << (char)(label + 'A');
+	}
+}
