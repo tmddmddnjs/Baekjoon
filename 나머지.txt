@@ -1,0 +1,53 @@
+/*시간초과 뜸
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+void solution(vector<int> number) {
+	for (int i = 0; i < number.size(); i++) 
+		number[i] %= 42;
+	for (int i = 0; i < number.size(); i++) {
+		for (int j = i + 1; j < number.size(); j++) {
+			if (number[i] == number[j]) {
+				number.erase(number.begin() + j, number.begin() + j + 1);
+				i = 0;
+			}
+		}
+	}
+	if (number.size() == 2) 
+		cout << '1' << endl;
+	else 
+		cout << number.size() << endl;
+}
+
+//number.erase(number.begin(), number.begin()+2); 1~2째 자리 지움
+//number.erase(number.begin()+3, number.begin()+4); 4번째 자리 지움
+
+int main() {
+	vector<int> number(10);
+	for (int i = 0; i < 10; i++) {
+		cin >> number[i];
+	}
+	solution(number);
+}
+*/
+#include <iostream>
+
+using namespace std;
+
+int main() {
+	int temp[41] = { 0, }, input, count = 0;
+	//42로 나눠질 때 나오는 나머지는 총 42개 1~41
+	//입력한 input 위치 %42를 하나씩 더해준다.
+	for (int i = 0; i < 10; i++) {
+		cin >> input;
+		temp[42 % input]++;
+	}
+	//temp에 값이 있다면
+	for (int i = 0; i < 41; i++) {
+		if (temp[i])
+			count++;
+	}
+	cout << count;
+}
