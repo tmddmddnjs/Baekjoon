@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+/*
+//아래의 cout은 백준에서는 지워야하는 라인
+*/
+int main() {
+	int student_count = 0;
+	//
+	cout << "총 학생 수 >> ";
+	cin >> student_count;
+	for (int i = 0; i < student_count; i++) {
+		int student_score[1000] = { 0, };
+		double count = 0, avg = 0, sum = 0;
+		int student_i = 0;
+		//
+		cout << i + 1 << "번째 학생 성적 갯수 >> ";
+		cin >> student_i;
+		//
+		cout << i + 1 << "번째 학생 성적 " << student_i << "개 >> " << endl;
+		for (int j = 0; j < student_i; j++) {
+			cin >> student_score[j];
+			sum += student_score[j];
+		}
+		avg = sum / (double)student_i;
+		for (int k = 0; k < student_i; k++) {
+			if (avg < student_score[k])
+				count++;
+		}
+		cout << fixed;
+		cout.precision(3);
+		cout << (count*100/(double)student_i) << "%\n";
+	}
+}
