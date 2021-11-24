@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int inputNum, floor = 1, sum = 1;
+	cin >> inputNum;
+	if (inputNum == 1) {
+		cout << 1;
+		return 0;
+	}
+	/*
+	sum이 inputNum보다 크지 않은 동안
+	1 + (6*1) + (6*2) + (6*3) + ...... 이렇게 계속해서 더해감
+	이때마다 floor를 ++ 해줘서 층을 맞춰줌	
+	
+	입력값이 1일 때 따로 해준건 나머지는 6을 이용할 수 있는데 재는 불편해서고
+	sum의 기준이 1, 7, 19, 37인 이유는
+	2층 : 1~7
+	3층 : 8~19
+	4층 : 20~37로 끝자리에 맞춰서이다.
+	
+	ex)inputNum = 8일 때
+	8 > 1 이면 sum이 더 작아서 sum에 6*floor를 더해주면 7이 됨, floor=2
+	8 > 7 이면 아직 더 작아서 sum에 6 * 2를 함, floor=3
+	8 > 19가 되기 때문에 false가 되서 while문을 나옴
+	*/
+	while (inputNum > sum) {
+		if (inputNum > sum) {
+			sum += (6 * floor);
+			floor += 1;
+		}
+	}
+	cout << floor;
+}
