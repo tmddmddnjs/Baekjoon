@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+/*반복문을 쓰면 시간 초과가 뜸*/
+int solution(int dayUp, int sleep, int treeSize) {
+	int answer = 0;
+	int answerDay = 0;
+	while (answer < treeSize) {
+		answer += dayUp;
+		answerDay++;
+		if (answer < treeSize) {
+			answer -= sleep;
+		}
+	}
+
+	return answerDay;
+}
+
+/*반복문을 쓰지 않는 방법*/
+void solution2(int a, int b, int v) {
+	int day = 1;
+	day += (v - a) / (a - b);
+	if ((v - a) % (a - b) != 0)
+		day++;
+	if (a >= v)
+		cout << "1";
+	else
+		cout << day;
+}
+
+int main() {
+	int dayUp, sleep, treeSize;
+	cin >> dayUp >> sleep >> treeSize;
+	solution2(dayUp, sleep, treeSize);
+}
