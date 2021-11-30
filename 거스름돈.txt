@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+#define N 1000
+
+int solution(int num) {
+	int answer = 0;
+	int sum = 0;
+	vector<int> money = { 500,100,50,10,5,1 };
+
+	int i = 0;
+	while (!(num == sum)) {
+		sum += money[i];
+		answer++;
+		cout << "money : " << sum << ", count : " << answer << endl;
+		if (sum > num) {
+			sum -= money[i];
+			i++;
+			answer--;
+			cout << "money : " << sum << ", count : " << answer << endl;
+		}
+	}
+	return answer;
+}
+
+int main() {
+	int num = 0;
+	cin >> num;
+	cout << solution(N - num);
+}
