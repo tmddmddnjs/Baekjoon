@@ -1,7 +1,4 @@
 #9237
-from re import I, T
-
-
 n = int(input())
 t = list(map(int, input().split()))
 t.sort(reverse=True)
@@ -13,6 +10,7 @@ t.sort(reverse=True)
 #     managerComeCount += 1
 #     if max(t) == 0:
 #         break
+# print(managerComeCount + 2)
 for idx in range(n):
     t[idx] += idx
 print(max(t) + 2)
